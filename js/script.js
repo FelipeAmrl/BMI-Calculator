@@ -1,6 +1,6 @@
 import { Modal } from './modal.js';
 import { AlertError } from './alert-error.js';
-import { inputValueIsNotANumber, notNumber, calculateBMI, resetInputs } from './utils.js';
+import { inputValueIsNotANumber, notNumber, verifyBMICategory, changeCategoryTextColor, calculateBMI, resetInputs } from './utils.js';
 
 const form = document.querySelector("form");
 const inputWeight = document.querySelector("#weight");
@@ -24,15 +24,20 @@ function handleSubmit(event)
     }
 
     const BMI = calculateBMI(weight, height);
-    displayResultMessage(BMI);
+    const category = verifyBMICategory(BMI);
+    displayResultMessage(BMI, category);
 
     resetInputs();
 }
 
-function displayResultMessage(BMI)
+function displayResultMessage(BMI, category)
 {
-    const message = `Your BMI is ${BMI}</br>(Normal)`;
+    const message = `Your BMI is ${BMI}</br>(<span>${category}</span>)`;
+
     Modal.messege.innerHTML = message;
+
+    changeCategoryTextColor(category);
+
     Modal.open();
 }
 

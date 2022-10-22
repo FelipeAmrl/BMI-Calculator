@@ -139,6 +139,7 @@ form button:hover
 {
     opacity: 1;
     visibility: visible;
+    
 }
 
 .modal-wrapper
@@ -166,8 +167,8 @@ form button:hover
     border: none;
 
     position: absolute;
-    top: 1.6rem;
-    right: 1.6rem;
+    top: 1rem;
+    right: 1rem;
 
     cursor: pointer;
 
