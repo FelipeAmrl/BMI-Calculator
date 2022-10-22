@@ -1,19 +1,8 @@
+import { Modal } from './modal.js';
+
 const form = document.querySelector("form");
 const inputWeight = document.querySelector("#weight");
 const inputHeight = document.querySelector("#height");
-
-const Modal = {
-    wrapper: document.querySelector(".modal-wrapper"),
-    messege: document.querySelector(".modal .title"),
-    buttonClose: document.querySelector(".modal button.close"),
-
-    open(){
-        Modal.wrapper.classList.add('open');
-    },
-    close(){
-        Modal.wrapper.classList.remove("open");
-    }
-}
 
 form.onsubmit = event => {
     event.preventDefault();
@@ -29,8 +18,6 @@ form.onsubmit = event => {
 
     resetInputs();
 }
-
-Modal.buttonClose.onclick = () => Modal.close();
 
 function BMI(weight, height)
 {
